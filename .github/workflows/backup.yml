@@ -1,0 +1,82 @@
+name: Repository Backup & Health Check
+
+on:
+  schedule:
+    - cron: '0 3 * * 0'  # Weekly Sunday 3 AM UTC
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  backup-health-check:
+    name: Repository Health Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Full history for comprehensive backup
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Run health checks
+      run: |
+        echo "Repository Health Check Report" > health-report.txt
+        echo "Date: $(date)" >> health-report.txt
+        echo "Commit: $(git rev-parse HEAD)" >> health-report.txt
+        echo "Branch: $(git branch --show-current)" >> health-report.txt
+        echo "" >> health-report.txt
+        
+        echo "File Structure Check:" >> health-report.txt
+        find . -name "*.ts" -o -name "*.tsx" -o -name "*.js" -o -name "*.jsx" | head -20 >> health-report.txt
+        echo "" >> health-report.txt
+        
+        echo "Package.json Dependencies:" >> health-report.txt
+        cat package.json | grep -A 50 "dependencies" >> health-report.txt
+        echo "" >> health-report.txt
+        
+        echo "Build Test:" >> health-report.txt
+        npm run build && echo "✓ Build successful" >> health-report.txt || echo "✗ Build failed" >> health-report.txt
+        
+    - name: Check critical files exist
+      run: |
+        echo "Critical Files Check:" >> health-report.txt
+        test -f package.json && echo "✓ package.json exists" >> health-report.txt
+        test -f tsconfig.json && echo "✓ tsconfig.json exists" >> health-report.txt
+        test -f vite.config.ts && echo "✓ vite.config.ts exists" >> health-report.txt
+        test -f client/src/App.tsx && echo "✓ App.tsx exists" >> health-report.txt
+        test -f server/index.ts && echo "✓ server/index.ts exists" >> health-report.txt
+        test -d shared && echo "✓ shared directory exists" >> health-report.txt
+        
+    - name: Security audit
+      run: |
+        echo "Security Audit:" >> health-report.txt
+        npm audit --audit-level=moderate >> health-report.txt 2>&1 || echo "Security issues found" >> health-report.txt
+        
+    - name: Create backup bundle
+      run: |
+        tar -czf some-fitness-backup-$(date +%Y%m%d).tar.gz \
+          --exclude=node_modules \
+          --exclude=dist \
+          --exclude=.git \
+          .
+          
+    - name: Upload health report
+      uses: actions/upload-artifact@v3
+      with:
+        name: health-report
+        path: health-report.txt
+        retention-days: 30
+        
+    - name: Upload backup bundle
+      uses: actions/upload-artifact@v3
+      with:
+        name: repository-backup
+        path: some-fitness-backup-*.tar.gz
+        retention-days: 90
