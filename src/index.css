@@ -1,0 +1,953 @@
+/* FONT IMPORT - Inter for clean Apple-like aesthetics */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Set Inter as default font */
+* {
+  font-family: 'Inter', -apple-system, BlinkMaxSystemFont, 'Segoe UI', 'Roboto', system-ui, sans-serif;
+}
+
+/* Emoji button containers for wellness check-in */
+.emoji-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;  /* space between emojis */
+  flex-wrap: wrap;  /* prevent overflow on small screens */
+}
+
+.emoji-button {
+  width: 64px;
+  height: 64px;
+  min-width: 64px;  /* prevent shrinking */
+  min-height: 64px; /* prevent shrinking */
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+  padding: 4px; /* small padding for content */
+}
+
+.emoji-button:hover {
+  border-color: #888;
+}
+
+/* Add safe area padding for mobile devices */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+:root {
+  /* Natural Organic Color Palette */
+  --sand: #F5EFE7;
+  --deep-slate: #2F3E46;
+  --sage: #A8C3A4;
+  --coral: #FFADAD;
+  
+  /* Unified Natural Theme */
+  --background: rgba(245, 239, 231, 0.85); /* sand with transparency */
+  --foreground: #2F3E46; /* deep slate */
+  --card: rgba(245, 239, 231, 0.75); /* sand */
+  --card-foreground: #2F3E46; /* deep slate */
+  --popover: rgba(245, 239, 231, 0.95); /* sand */
+  --popover-foreground: #2F3E46; /* deep slate */
+  --primary: #A8C3A4; /* sage */
+  --primary-foreground: #2F3E46; /* deep slate */
+  --secondary: rgba(168, 195, 164, 0.3); /* sage with transparency */
+  --secondary-foreground: #2F3E46; /* deep slate */
+  --muted: rgba(245, 239, 231, 0.6); /* sand */
+  --muted-foreground: rgba(47, 62, 70, 0.7); /* deep slate */
+  --accent: #FFADAD; /* coral */
+  --accent-foreground: #2F3E46; /* deep slate */
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --border: rgba(168, 195, 164, 0.4); /* sage */
+  --input: rgba(245, 239, 231, 0.8); /* sand */
+  --ring: #A8C3A4; /* sage */
+  --radius: 0.5rem;
+
+  /* Custom wellness colors */
+  --wellness-primary: hsl(168, 50%, 45%);
+  --wellness-secondary: hsl(50, 60%, 70%);
+  --wellness-accent: hsl(168, 50%, 45%);
+  --wellness-warning: hsl(37, 91%, 55%);
+  --wellness-danger: hsl(0, 84.2%, 60.2%);
+}
+
+/* Cliff Coastline Background */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+/* Cliff Coastline Theme - Transparent gradients to show background */
+.sunrise-gradient,
+.midday-gradient,
+.twilight-gradient,
+.tropical-gradient {
+  background: transparent; /* Let the cliff coastline background show through */
+}
+
+/* BASE STYLES */
+body {
+  margin: 0;
+  font-family: -webkit-system-ui, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* UNIFIED TYPOGRAPHY SYSTEM - Consistent across all pages */
+
+/* Primary Font: Inter for all text elements */
+* {
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Consistent Text Sizes */
+.text-page-title { font-size: 2.25rem; font-weight: 700; }
+.text-section-title { font-size: 1.5rem; font-weight: 600; }
+.text-card-title { font-size: 1.125rem; font-weight: 600; }
+.text-body { font-size: 0.875rem; font-weight: 400; }
+.text-caption { font-size: 0.75rem; font-weight: 400; }
+
+/* Page Headers - Consistent styling */
+.page-header {
+  padding: 2rem 0 1rem 0;
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+}
+
+/* Unified Card Styling */
+.wellness-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  backdrop-filter: blur(10px);
+}
+
+.wellness-card-content {
+  padding: 1.5rem;
+}
+
+/* Consistent Button Styles */
+.wellness-btn-primary {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.wellness-btn-primary:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Unified Section Spacing */
+.wellness-section {
+  margin-bottom: 3rem;
+}
+
+.wellness-subsection {
+  margin-bottom: 2rem;
+}
+h4, h5, h6, .subheading, .card-title, .section-title {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+}
+
+/* Button weight standardization */
+button, .btn, .button {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+}
+
+/* Form elements standardization */
+input, textarea, select, .form-input {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 400 !important;
+}
+
+/* Navigation and menu consistency */
+nav, .nav, .navigation, .menu {
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* TYPOGRAPHY SCALE - Consistent sizing hierarchy */
+h1, .page-title {
+  font-size: 2.25rem !important; /* 36px */
+  line-height: 1.2 !important;
+  letter-spacing: -0.025em !important;
+}
+
+h2, .section-heading {
+  font-size: 1.875rem !important; /* 30px */
+  line-height: 1.3 !important;
+  letter-spacing: -0.015em !important;
+}
+
+h3, .subsection-heading {
+  font-size: 1.5rem !important; /* 24px */
+  line-height: 1.4 !important;
+}
+
+h4, .card-title {
+  font-size: 1.375rem !important; /* 22px - increased from 20px */
+  line-height: 1.4 !important;
+}
+
+h5, h6, .small-heading {
+  font-size: 1.125rem !important; /* 18px - increased from 16px */
+  line-height: 1.5 !important;
+}
+
+/* Body text sizing */
+p, .body-text, div {
+  font-size: 1rem !important; /* 16px - increased from 14px */
+  line-height: 1.6 !important;
+}
+
+/* Button text sizing */
+button, .btn {
+  font-size: 1rem !important; /* 16px - increased from 14px */
+  line-height: 1.4 !important;
+}
+
+/* Small text for captions, labels, etc */
+.text-sm, .caption, .label-small {
+  font-size: 0.875rem !important; /* 14px - increased from 12px */
+  line-height: 1.5 !important;
+}
+
+/* Card and overlay text contrast */
+.card-content {
+  color: #2C3A58; /* Deep Indigo for card text */
+}
+
+.overlay-text {
+  color: #F2E3C9; /* Moonlight Beige for overlay text */
+}
+
+/* Force S.O.M.E letter visibility */
+.some-letter-black {
+  color: #000000 !important;
+  font-weight: 900 !important;
+}
+
+.some-letter-blue {
+  color: #1E3A8A !important;
+  font-weight: 900 !important;
+}
+
+.some-letter-green {
+  color: #059669 !important;
+  font-weight: 900 !important;
+}
+
+/* Force all section headings to be white on all pages */
+.text-white {
+  color: #ffffff !important;
+}
+
+/* Tropical daytime background for all pages except sleep */
+.tropical-day-background {
+  background: url('/images/cliff-coastline.png') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* Mobile background optimization */
+@media (max-width: 768px) {
+  .tropical-day-background {
+    background-attachment: scroll;
+    background-position: center top;
+  }
+}
+
+/* Nighttime background only for sleep page */
+.sleep-night-background {
+  background: url('/images/nighttime-coast-moon.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* App Container to prevent sliding */
+#root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Maintain single Hawaiian theme - no time-based theme switching */
+
+@layer base {
+  * {
+    @apply border-border;
+    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+  }
+
+  body {
+    @apply font-sans antialiased text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: linear-gradient(135deg, var(--wellness-primary) 0%, var(--wellness-secondary) 100%);
+  }
+  
+  .gradient-accent {
+    background: linear-gradient(135deg, var(--wellness-accent) 0%, var(--wellness-secondary) 100%);
+  }
+
+  .shadow-wellness {
+    box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.1), 0 2px 4px -1px rgba(99, 102, 241, 0.06);
+  }
+
+  /* Time-based gradient backgrounds */
+  .tropical-gradient {
+    background: linear-gradient(135deg, 
+      rgba(245, 230, 163, 0.4) 0%,
+      rgba(212, 212, 170, 0.4) 25%,
+      rgba(168, 216, 205, 0.4) 50%,
+      rgba(135, 206, 235, 0.4) 75%,
+      rgba(255, 160, 122, 0.4) 100%);
+  }
+  
+  /* Enhanced mobile visibility */
+  @media (max-width: 768px) {
+    .tropical-gradient {
+      background: linear-gradient(135deg, 
+        rgba(245, 230, 163, 0.6) 0%,
+        rgba(212, 212, 170, 0.6) 25%,
+        rgba(168, 216, 205, 0.6) 50%,
+        rgba(135, 206, 235, 0.6) 75%,
+        rgba(255, 160, 122, 0.6) 100%);
+    }
+  }
+
+  /* App container styling */
+  .app-container {
+    position: relative;
+    z-index: 1;
+    max-width: 100vw;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Prevent touch scroll issues on mobile */
+  @media (max-width: 768px) {
+    body {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    #root {
+      height: 100vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+    }
+    
+    .app-container {
+      min-height: 100vh;
+      padding-bottom: 20px;
+    }
+  }
+
+  /* Character state classes */
+  .character-morning {
+    filter: brightness(1.1) saturate(1.2) hue-rotate(15deg);
+  }
+
+  .character-afternoon {
+    filter: brightness(1.0) saturate(1.0) hue-rotate(180deg);
+  }
+
+  .character-evening {
+    filter: brightness(0.8) saturate(0.9) hue-rotate(280deg);
+  }
+
+  /* Animate twinkle for stars */
+
+
+  /* Botanical Element Styles */
+  .botanical-fern {
+    position: absolute;
+    width: 120px;
+    height: 160px;
+    background: linear-gradient(45deg, 
+      rgba(107, 142, 35, 0.6) 0%,
+      rgba(85, 107, 47, 0.7) 50%,
+      rgba(124, 152, 47, 0.5) 100%
+    );
+    clip-path: polygon(
+      50% 0%, 
+      30% 25%, 45% 30%, 25% 50%, 40% 55%, 
+      20% 75%, 35% 80%, 15% 95%, 50% 100%, 
+      85% 95%, 65% 80%, 80% 75%, 60% 55%, 
+      75% 50%, 55% 30%, 70% 25%
+    );
+    filter: blur(0.5px);
+    animation: gentle-sway 4s ease-in-out infinite;
+  }
+
+  .botanical-hibiscus {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, 
+      rgba(255, 99, 71, 0.8) 0%,
+      rgba(255, 69, 0, 0.9) 40%,
+      rgba(255, 140, 0, 0.6) 80%
+    );
+    border-radius: 50% 40% 50% 40%;
+    transform: rotate(45deg);
+    filter: blur(0.3px);
+    animation: gentle-pulse 3s ease-in-out infinite;
+  }
+
+  .botanical-hibiscus::before,
+  .botanical-hibiscus::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: inherit;
+  }
+
+  .botanical-hibiscus::before {
+    transform: rotate(45deg) scale(0.8);
+  }
+
+  .botanical-hibiscus::after {
+    transform: rotate(90deg) scale(0.6);
+  }
+
+  .botanical-wave {
+    position: absolute;
+    width: 200px;
+    height: 40px;
+    background: linear-gradient(90deg,
+      rgba(72, 209, 204, 0.4) 0%,
+      rgba(64, 224, 208, 0.6) 50%,
+      rgba(0, 206, 209, 0.3) 100%
+    );
+    border-radius: 50px;
+    animation: ocean-wave 6s ease-in-out infinite;
+  }
+
+  .botanical-palm {
+    position: absolute;
+    width: 100px;
+    height: 140px;
+    background: linear-gradient(180deg,
+      rgba(34, 139, 34, 0.7) 0%,
+      rgba(46, 125, 50, 0.8) 70%,
+      rgba(101, 67, 33, 0.6) 100%
+    );
+    clip-path: polygon(
+      45% 0%, 55% 0%, 60% 20%, 70% 15%, 75% 25%, 
+      80% 20%, 85% 30%, 90% 25%, 95% 35%, 
+      90% 40%, 85% 45%, 80% 50%, 75% 55%, 
+      70% 60%, 65% 75%, 60% 80%, 55% 85%, 
+      50% 100%, 45% 85%, 40% 80%, 35% 75%, 
+      30% 60%, 25% 55%, 20% 50%, 15% 45%, 
+      10% 40%, 5% 35%, 10% 25%, 15% 30%, 
+      20% 20%, 25% 25%, 30% 15%, 40% 20%
+    );
+    animation: palm-sway 5s ease-in-out infinite;
+  }
+
+  /* Botanical Animations */
+  @keyframes gentle-sway {
+    0%, 100% { transform: rotate(-2deg) translateX(0px); }
+    50% { transform: rotate(2deg) translateX(3px); }
+  }
+
+  @keyframes gentle-pulse {
+    0%, 100% { transform: rotate(45deg) scale(1); opacity: 0.7; }
+    50% { transform: rotate(45deg) scale(1.1); opacity: 0.9; }
+  }
+
+  @keyframes ocean-wave {
+    0%, 100% { transform: translateX(-10px) scaleY(1); }
+    25% { transform: translateX(5px) scaleY(1.2); }
+    50% { transform: translateX(10px) scaleY(0.8); }
+    75% { transform: translateX(-5px) scaleY(1.1); }
+  }
+
+  @keyframes palm-sway {
+    0%, 100% { transform: rotate(-3deg); }
+    33% { transform: rotate(2deg); }
+    66% { transform: rotate(-1deg); }
+  }
+
+  @keyframes bubble-float {
+    0% {
+      opacity: 0;
+      transform: translateY(0) scale(0.8);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(-20px) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-40px) scale(0.8);
+    }
+  }
+
+  /* Botanical decorative positioning */
+  .page-botanical-decor {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-botanical-decor::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: -20px;
+    z-index: -1;
+  }
+
+  .page-botanical-decor::after {
+    content: '';
+    position: absolute;
+    bottom: 15%;
+    right: -30px;
+    z-index: -1;
+  }
+
+
+}
+
+/* Mobile Navigation Styles */
+/* Mobile nav styles moved to Navigation component */
+
+/* Safe area support for newer iPhones */
+.pb-safe {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 6px;
+  color: #6b7280;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  min-width: 0;
+  flex: 1;
+  max-width: 20%;
+  overflow: hidden;
+  touch-action: manipulation;
+}
+
+.mobile-nav-item.active {
+  color: #3b82f6;
+}
+
+.mobile-nav-item:hover {
+  color: #1d4ed8;
+}
+
+/* Ensure mobile nav is always visible */
+@media (max-width: 768px) {
+  .mobile-nav-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(229, 231, 235, 0.5);
+    min-height: 60px;
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Add bottom padding to main content to account for mobile nav */
+@media (max-width: 767px) {
+  .main-content {
+    padding-bottom: 80px;
+  }
+  
+  .mobile-nav-item span {
+    font-size: 0.65rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* React Big Calendar Styles */
+.rbc-calendar {
+  font-family: inherit;
+}
+
+.rbc-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 8px 12px;
+  font-weight: 500;
+  border: none;
+}
+
+.rbc-today {
+  background-color: #f0f9ff;
+}
+
+.rbc-event {
+  border-radius: 6px;
+  padding: 2px 5px;
+  font-size: 0.875rem;
+  border: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.rbc-event:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.rbc-off-range-bg {
+  background-color: #f8fafc;
+}
+
+.rbc-slot-selection {
+  background-color: #3b82f6;
+  opacity: 0.1;
+}
+
+.rbc-agenda-table {
+  font-size: 0.875rem;
+}
+
+.rbc-agenda-table tbody > tr > td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.rbc-toolbar {
+  margin-bottom: 1rem;
+}
+
+.rbc-toolbar button {
+  background: white;
+  border: 1px solid #d1d5db;
+  color: #374151;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rbc-toolbar button:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+.rbc-toolbar button.rbc-active {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: white;
+}
+
+.rbc-time-header {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.rbc-time-content {
+  border-left: 1px solid #e2e8f0;
+}
+
+.rbc-time-gutter {
+  background-color: #f8fafc;
+}
+
+.rbc-timeslot-group {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.rbc-day-slot {
+  border-right: 1px solid #e2e8f0;
+}
+
+.rbc-month-view {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.rbc-date-cell {
+  padding: 6px 8px;
+  text-align: right;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.rbc-date-cell.rbc-off-range {
+  color: #9ca3af;
+}
+
+.rbc-date-cell > a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.rbc-date-cell > a:hover {
+  text-decoration: underline;
+}
+
+.rbc-row-content {
+  z-index: 4;
+}
+
+.rbc-addons-dnd .rbc-addons-dnd-drag-preview {
+  opacity: 0.8;
+}
+
+.rbc-addons-dnd .rbc-addons-dnd-over {
+  background-color: #dbeafe;
+}
+
+.calendar-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Mobile Calendar Styles */
+.mobile-calendar-container .react-calendar {
+  width: 100%;
+  background: white;
+  border: none;
+  font-family: inherit;
+  line-height: 1.125em;
+}
+
+.mobile-calendar-container .react-calendar--doubleView {
+  width: 700px;
+}
+
+.mobile-calendar-container .react-calendar--doubleView .react-calendar__viewContainer {
+  display: flex;
+  margin: -0.5em;
+}
+
+.mobile-calendar-container .react-calendar--doubleView .react-calendar__viewContainer > * {
+  width: 50%;
+  margin: 0.5em;
+}
+
+.mobile-calendar-container .react-calendar,
+.mobile-calendar-container .react-calendar *,
+.mobile-calendar-container .react-calendar *:before,
+.mobile-calendar-container .react-calendar *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Add mobile navigation spacing */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 80px; /* Space for mobile navigation */
+  }
+}
+
+.mobile-calendar-container .react-calendar button {
+  margin: 0;
+  border: 0;
+  outline: none;
+}
+
+.mobile-calendar-container .react-calendar button:enabled:hover,
+.mobile-calendar-container .react-calendar button:enabled:focus {
+  background-color: #e6f3ff;
+}
+
+.mobile-calendar-container .react-calendar__navigation {
+  display: flex;
+  height: 44px;
+  margin-bottom: 1em;
+}
+
+.mobile-calendar-container .react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
+  font-size: 16px;
+  margin-top: 0;
+  color: #374151;
+  font-weight: 500;
+}
+
+.mobile-calendar-container .react-calendar__navigation button:disabled {
+  background-color: #f0f0f0;
+}
+
+.mobile-calendar-container .react-calendar__navigation button:enabled:hover,
+.mobile-calendar-container .react-calendar__navigation button:enabled:focus {
+  background-color: #e6f3ff;
+  border-radius: 6px;
+}
+
+.mobile-calendar-container .react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.75em;
+  color: #6b7280;
+}
+
+.mobile-calendar-container .react-calendar__month-view__weekdays__weekday {
+  padding: 0.5em;
+}
+
+.mobile-calendar-container .react-calendar__month-view__weekNumbers .react-calendar__tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75em;
+  font-weight: bold;
+}
+
+.mobile-calendar-container .react-calendar__month-view__days__day--weekend {
+  color: #d10000;
+}
+
+.mobile-calendar-container .react-calendar__month-view__days__day--neighboringMonth {
+  color: #9ca3af;
+}
+
+.mobile-calendar-container .react-calendar__year-view .react-calendar__tile,
+.mobile-calendar-container .react-calendar__decade-view .react-calendar__tile,
+.mobile-calendar-container .react-calendar__century-view .react-calendar__tile {
+  padding: 2em 0.5em;
+}
+
+.mobile-calendar-container .react-calendar__tile {
+  max-width: 100%;
+  padding: 10px 6px;
+  background: none;
+  text-align: center;
+  line-height: 16px;
+  font-size: 0.833em;
+  border-radius: 6px;
+  margin: 1px;
+  color: #374151;
+}
+
+.mobile-calendar-container .react-calendar__tile:disabled {
+  background-color: #f0f0f0;
+  color: #9ca3af;
+}
+
+.mobile-calendar-container .react-calendar__tile:enabled:hover,
+.mobile-calendar-container .react-calendar__tile:enabled:focus {
+  background-color: #e6f3ff;
+  color: #1e40af;
+}
+
+.mobile-calendar-container .react-calendar__tile--now {
+  background: #3b82f6;
+  color: white;
+  font-weight: bold;
+}
+
+.mobile-calendar-container .react-calendar__tile--now:enabled:hover,
+.mobile-calendar-container .react-calendar__tile--now:enabled:focus {
+  background: #2563eb;
+  color: white;
+}
+
+.mobile-calendar-container .react-calendar__tile--hasActive {
+  background: #76baff;
+}
+
+.mobile-calendar-container .react-calendar__tile--hasActive:enabled:hover,
+.mobile-calendar-container .react-calendar__tile--hasActive:enabled:focus {
+  background: #a9d4ff;
+}
+
+.mobile-calendar-container .react-calendar__tile--active {
+  background: #006edc;
+  color: white;
+  font-weight: bold;
+}
+
+.mobile-calendar-container .react-calendar__tile--active:enabled:hover,
+.mobile-calendar-container .react-calendar__tile--active:enabled:focus {
+  background: #1087ff;
+  color: white;
+}
+
+.mobile-calendar-container .react-calendar--selectRange .react-calendar__tile--hover {
+  background-color: #e6f3ff;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 640px) {
+  .mobile-calendar-container .react-calendar {
+    width: 100%;
+  }
+  
+  .mobile-calendar-container .react-calendar__tile {
+    padding: 8px 4px;
+    font-size: 0.75em;
+  }
+  
+  .mobile-calendar-container .react-calendar__navigation button {
+    min-width: 36px;
+    font-size: 14px;
+  }
+  
+  .mobile-calendar-container .react-calendar__month-view__weekdays__weekday {
+    padding: 0.25em;
+  }
+}
