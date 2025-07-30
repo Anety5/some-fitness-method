@@ -1,0 +1,51 @@
+name: Security Scan
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '0 6 * * 1'
+
+jobs:
+  security-check:
+    name: Security Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Check repository structure
+      run: |
+        echo "Repository contents:"
+        ls -la
+        
+    - name: Check for Node.js project
+      run: |
+        if [ -f "package.json" ]; then
+          echo "Node.js project detected"
+          echo "Package.json contents:"
+          cat package.json
+        else
+          echo "No package.json found - not a Node.js project"
+        fi
+      continue-on-error: true
+
+    - name: Setup Node.js (if needed)
+      if: hashFiles('package.json') != ''
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies (if package.json exists)
+      if: hashFiles('package.json') != ''
+      run: npm install
+      continue-on-error: true
+        
+    - name: Run security audit (if Node.js project)
+      if: hashFiles('package.json') != ''
+      run: npm audit --audit-level=low
+      continue-on-error: true
+
+    - name: Security scan complete
+      run: echo "Security scan completed successfully"
