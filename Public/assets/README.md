@@ -1,1 +1,0 @@
-Asset library organization
