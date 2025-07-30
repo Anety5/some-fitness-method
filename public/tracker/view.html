@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Workout Logs</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" />
+  <script src="view.js" defer></script>
+</head>
+<body>
+  <h2>My Workout History</h2>
+  
+  <div style="margin-bottom: 20px;">
+    <button onclick="showView('logs')" id="logsTab">Workout Logs</button>
+    <button onclick="showView('chart')" id="chartTab">Analytics</button>
+    <button onclick="showView('calendar')" id="calendarTab">Calendar</button>
+  </div>
+
+  <div id="logsView">
+    <div id="logs"></div>
+    <br>
+    <button onclick="exportJSON()">Export All as JSON</button>
+    <button onclick="clearLogs()">Clear All Logs</button>
+  </div>
+
+  <div id="chartView" style="display: none;">
+    <canvas id="workoutChart" width="400" height="200"></canvas>
+  </div>
+
+  <div id="calendarView" style="display: none;">
+    <div id="calendar"></div>
+  </div>
+</body>
+</html>
