@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="S.O.M.E Method - Health Connect"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/btnReadHeartRate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Read Health Data"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/btnSyncToSome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sync to S.O.M.E App"
+        android:background="@android:color/holo_green_light"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/btnRegisterDevice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register Device"
+        android:background="@android:color/holo_blue_light"
+        android:layout_marginBottom="24dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tvData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tap 'Read Health Data' to see your vitals\nTap 'Sync to S.O.M.E App' to upload data\nTap 'Register Device' to connect with web app"
+            android:padding="16dp"
+            android:background="@android:color/black"
+            android:textColor="@android:color/white"
+            android:fontFamily="monospace"
+            android:textSize="12sp"/>
+
+    </ScrollView>
+
+</LinearLayout>
