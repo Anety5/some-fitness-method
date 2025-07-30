@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sticker background -->
+  <circle cx="75" cy="75" r="70" fill="#E3F2FD" stroke="#1976D2" stroke-width="4"/>
+  
+  <!-- Celebratory blowfish -->
+  <ellipse cx="75" cy="75" rx="40" ry="30" fill="#FF9800"/>
+  
+  <!-- Spikes all around (fully inflated celebration mode) -->
+  <polygon points="35,75 40,70 40,80" fill="#FF9800"/>
+  <polygon points="115,75 110,70 110,80" fill="#FF9800"/>
+  <polygon points="75,35 70,40 80,40" fill="#FF9800"/>
+  <polygon points="75,115 70,110 80,110" fill="#FF9800"/>
+  
+  <!-- Diagonal spikes -->
+  <polygon points="50,50 52,47 55,52" fill="#FF9800"/>
+  <polygon points="100,50 98,47 95,52" fill="#FF9800"/>
+  <polygon points="50,100 52,103 55,98" fill="#FF9800"/>
+  <polygon points="100,100 98,103 95,98" fill="#FF9800"/>
+  
+  <!-- Happy eyes -->
+  <ellipse cx="65" cy="70" rx="4" ry="6" fill="#000"/>
+  <ellipse cx="85" cy="70" rx="4" ry="6" fill="#000"/>
+  
+  <!-- Smile -->
+  <path d="M 60 85 Q 75 95 90 85" stroke="#000" stroke-width="2" fill="none"/>
+  
+  <!-- Celebration text -->
+  <text x="75" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1976D2">🎉</text>
+  <text x="75" y="130" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#1976D2">S.O.M.E</text>
+</svg>
