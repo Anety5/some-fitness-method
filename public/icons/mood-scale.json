@@ -1,0 +1,67 @@
+{
+  "sleep": {
+    "1": { "emoji": "😵", "description": "Terrible sleep", "color": "#ef4444" },
+    "2": { "emoji": "😴", "description": "Very poor", "color": "#f97316" },
+    "3": { "emoji": "😪", "description": "Poor", "color": "#eab308" },
+    "4": { "emoji": "😑", "description": "Below average", "color": "#84cc16" },
+    "5": { "emoji": "😐", "description": "Average", "color": "#22c55e" },
+    "6": { "emoji": "🙂", "description": "Good", "color": "#10b981" },
+    "7": { "emoji": "😊", "description": "Very good", "color": "#06b6d4" },
+    "8": { "emoji": "😌", "description": "Great", "color": "#3b82f6" },
+    "9": { "emoji": "😇", "description": "Excellent", "color": "#6366f1" },
+    "10": { "emoji": "✨", "description": "Perfect", "color": "#8b5cf6" }
+  },
+  "energy": {
+    "1": { "emoji": "🪫", "description": "Completely drained", "color": "#ef4444" },
+    "2": { "emoji": "😩", "description": "Exhausted", "color": "#f97316" },
+    "3": { "emoji": "😮‍💨", "description": "Very tired", "color": "#eab308" },
+    "4": { "emoji": "😔", "description": "Low energy", "color": "#84cc16" },
+    "5": { "emoji": "😐", "description": "Neutral", "color": "#22c55e" },
+    "6": { "emoji": "🙂", "description": "Decent energy", "color": "#10b981" },
+    "7": { "emoji": "😊", "description": "Good energy", "color": "#06b6d4" },
+    "8": { "emoji": "⚡", "description": "High energy", "color": "#3b82f6" },
+    "9": { "emoji": "🔥", "description": "Very energized", "color": "#6366f1" },
+    "10": { "emoji": "🚀", "description": "Maximum energy", "color": "#8b5cf6" }
+  },
+  "emotion": {
+    "1": { "emoji": "😭", "description": "Very sad", "color": "#ef4444" },
+    "2": { "emoji": "😢", "description": "Sad", "color": "#f97316" },
+    "3": { "emoji": "😞", "description": "Down", "color": "#eab308" },
+    "4": { "emoji": "😔", "description": "Low mood", "color": "#84cc16" },
+    "5": { "emoji": "😐", "description": "Neutral", "color": "#22c55e" },
+    "6": { "emoji": "🙂", "description": "Content", "color": "#10b981" },
+    "7": { "emoji": "😊", "description": "Happy", "color": "#06b6d4" },
+    "8": { "emoji": "😄", "description": "Very happy", "color": "#3b82f6" },
+    "9": { "emoji": "😁", "description": "Joyful", "color": "#6366f1" },
+    "10": { "emoji": "🥰", "description": "Blissful", "color": "#8b5cf6" }
+  },
+  "stress": {
+    "1": { "emoji": "😌", "description": "Completely relaxed", "color": "#8b5cf6" },
+    "2": { "emoji": "🙂", "description": "Very calm", "color": "#6366f1" },
+    "3": { "emoji": "😐", "description": "Calm", "color": "#3b82f6" },
+    "4": { "emoji": "😰", "description": "Slightly stressed", "color": "#06b6d4" },
+    "5": { "emoji": "😟", "description": "Moderate stress", "color": "#10b981" },
+    "6": { "emoji": "😨", "description": "Stressed", "color": "#22c55e" },
+    "7": { "emoji": "😱", "description": "Very stressed", "color": "#84cc16" },
+    "8": { "emoji": "🤯", "description": "Highly stressed", "color": "#eab308" },
+    "9": { "emoji": "😵‍💫", "description": "Overwhelmed", "color": "#f97316" },
+    "10": { "emoji": "🆘", "description": "Crisis level", "color": "#ef4444" }
+  },
+  "physical": {
+    "1": { "emoji": "🤒", "description": "Very unwell", "color": "#ef4444" },
+    "2": { "emoji": "😷", "description": "Unwell", "color": "#f97316" },
+    "3": { "emoji": "😮‍💨", "description": "Struggling", "color": "#eab308" },
+    "4": { "emoji": "😔", "description": "Below par", "color": "#84cc16" },
+    "5": { "emoji": "😐", "description": "Average", "color": "#22c55e" },
+    "6": { "emoji": "🙂", "description": "Good", "color": "#10b981" },
+    "7": { "emoji": "😊", "description": "Very good", "color": "#06b6d4" },
+    "8": { "emoji": "💪", "description": "Strong", "color": "#3b82f6" },
+    "9": { "emoji": "🏃‍♂️", "description": "Excellent", "color": "#6366f1" },
+    "10": { "emoji": "🏆", "description": "Peak condition", "color": "#8b5cf6" }
+  },
+  "thumbs": {
+    "positive": "👍",
+    "neutral": "👌", 
+    "negative": "👎"
+  }
+}
